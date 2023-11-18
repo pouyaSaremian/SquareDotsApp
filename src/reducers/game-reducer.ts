@@ -1,22 +1,6 @@
-type action = {
-  type: "LINE_SELECTED";
-  payload: { value?: string; id: number; position: string };
-};
+import type { state, action, square } from "../types/GameTypes";
 
-type state = {
-  squares: square[];
-  currentPlayer: number;
-};
-
-type square = {
-  id: number;
-  taken: boolean;
-  positions: position[];
-  player: number;
-};
-
-type position = { id: string; taken: boolean; player: number };
-
+//Initial State Genertor
 export function boardInitializer() {
   let rows = 4;
   let columns = 4;
@@ -37,6 +21,7 @@ export function boardInitializer() {
       });
     }
   }
+  //Initial State
   return { squares: squaresArray, currentPlayer: 1 };
 }
 

@@ -1,11 +1,8 @@
 import Style from "./style.module.scss";
-import { useReducer } from "react";
-import gameReducer, { boardInitializer } from "../../reducers/game-reducer";
 import GameSquare from "./GameSquare";
+import { GameBoardProps } from "../../types/GameTypes";
 
-const GameBoard = () => {
-  const [state, dispatch] = useReducer(gameReducer, {}, boardInitializer);
-
+const GameBoard = ({ state, dispatch }: GameBoardProps) => {
   return (
     <div className={Style["game__container"]}>
       <div className={Style["game__squares"]}>

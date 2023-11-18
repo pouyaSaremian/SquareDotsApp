@@ -22,13 +22,17 @@ export function boardInitializer() {
     }
   }
   //Initial State
-  return { squares: squaresArray, currentPlayer: 1 };
+  return {
+    squares: squaresArray,
+    currentPlayer: 1,
+    remainingSquares: rows * columns,
+  };
 }
 
 export default function gameReducer(state: state, action: action) {
   //when Player Select a Line
   if (action.type === "LINE_SELECTED") {
-    let { squares, currentPlayer } = state;
+    let { squares, remainingSquares, currentPlayer } = state;
 
     //Finding Modified lines In Each Square
     let targetSquares = squares.filter((e) =>
@@ -52,6 +56,8 @@ export default function gameReducer(state: state, action: action) {
       if (completedLines.length === 4) {
         square.taken = true;
         square.player = currentPlayer;
+        remainingSquares = remainingSquares - 1;
+        currentPlayer = currentPlayer;
       }
     }
 
@@ -68,7 +74,7 @@ export default function gameReducer(state: state, action: action) {
     //changing current player
     currentPlayer === 1 ? (currentPlayer = 2) : (currentPlayer = 1);
 
-    return { ...state, currentPlayer, squares: [...squares] };
+    return { ...state, remainingSquares, currentPlayer, squares: [...squares] };
   }
   return { ...state };
 }

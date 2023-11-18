@@ -1,9 +1,9 @@
 :root {
-  --color-primary: #fff;
-  --color-secondary: #fff;
-  --color-tertiary: #959595;
-  --color-player-1: #fff;
-  --color-player-2: #fff;
+  --color-primary: #242424;
+  --color-secondary: #8a97af;
+  --color-tertiary: #ccc;
+  --color-player-1: #2c2943;
+  --color-player-2: #ff345f;
 }
 
 #root {
@@ -11,7 +11,6 @@
   place-items: center;
   width: 100%;
   height: 100%;
-  color: bl;
 }
 
 /*Initial Reset*/
@@ -29,7 +28,32 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
+  background: linear-gradient(
+      45deg,
+      transparent 14%,
+      #f7f7f7 15%,
+      #f7f7f7 20%,
+      transparent 21%,
+      transparent 79%,
+      #f7f7f7 80%,
+      #f7f7f7 85%,
+      transparent 86%
+    ),
+    linear-gradient(
+      135deg,
+      transparent 14%,
+      #f7f7f7 15%,
+      #f7f7f7 20%,
+      transparent 21%,
+      transparent 79%,
+      #f7f7f7 80%,
+      #f7f7f7 85%,
+      transparent 86%
+    ),
+    radial-gradient(transparent 14%, #f7f7f7 15%, #f7f7f7 25%, transparent 26%);
+  background-size: 3em 3em;
+  background-color: #fdfdfd;
+  opacity: 1;
   padding: 5vh 5vw;
   width: 100vw;
   height: 100vh;

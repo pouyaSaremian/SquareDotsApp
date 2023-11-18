@@ -6,6 +6,7 @@ export type action = {
 export type state = {
   squares: square[];
   currentPlayer: number;
+  remainingSquares: number;
 };
 
 export type square = {
@@ -19,5 +20,10 @@ type position = { id: string; taken: boolean; player: number };
 
 export type GameSquareProps = {
   SquareData: square;
+  dispatch: React.Dispatch<action>;
+};
+
+export type GameBoardProps = {
+  state: state;
   dispatch: React.Dispatch<action>;
 };

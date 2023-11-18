@@ -1,16 +1,21 @@
 import type { GameSquareProps } from "../../types/GameTypes";
 import Style from "./style.module.scss";
 const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
+  function StyleHandler(number: number) {
+    if (SquareData.positions[number].taken) {
+      if (SquareData.positions[number].player === 2) {
+        return Style["player-2"];
+      } else if (SquareData.positions[number].player === 1) {
+        return Style["player-1"];
+      }
+    } else return "";
+  }
+
   return (
     <>
-      <div
-        key={SquareData.id}
-        className={Style["game__square"]}
-        style={SquareData.taken ? { background: "blue" } : {}}
-      >
+      <div key={SquareData.id} className={Style["game__square"]}>
         <div
-          className={Style["game__square--left"]}
-          style={SquareData.positions[0].taken ? { borderColor: "blue" } : {}}
+          className={`${Style["game__square--left"]} ${StyleHandler(0)}`}
           onClick={() =>
             dispatch({
               type: "LINE_SELECTED",
@@ -22,8 +27,7 @@ const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
           }
         ></div>
         <div
-          className={Style["game__square--top"]}
-          style={SquareData.positions[1].taken ? { borderColor: "blue" } : {}}
+          className={`${Style["game__square--top"]} ${StyleHandler(1)}`}
           onClick={() =>
             dispatch({
               type: "LINE_SELECTED",
@@ -35,8 +39,7 @@ const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
           }
         ></div>
         <div
-          className={Style["game__square--right"]}
-          style={SquareData.positions[2].taken ? { borderColor: "blue" } : {}}
+          className={`${Style["game__square--right"]} ${StyleHandler(2)}`}
           onClick={() =>
             dispatch({
               type: "LINE_SELECTED",
@@ -48,8 +51,14 @@ const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
           }
         ></div>
         <div
-          className={Style["game__square--bottom"]}
-          style={SquareData.positions[3].taken ? { borderColor: "blue" } : {}}
+          className={`${Style["game__square--bottom"]} ${StyleHandler(3)}`}
+          style={
+            SquareData.positions[3].taken
+              ? SquareData.positions[3].player === 2
+                ? { borderColor: "var(--color-player-2)" }
+                : { borderColor: "var(--color-player-1)" }
+              : {}
+          }
           onClick={() =>
             dispatch({
               type: "LINE_SELECTED",

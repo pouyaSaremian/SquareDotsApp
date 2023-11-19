@@ -7,6 +7,9 @@ export type state = {
   squares: square[];
   currentPlayer: number;
   remainingSquares: number;
+  player1: number;
+  player2: number;
+  winner: number;
 };
 
 export type square = {

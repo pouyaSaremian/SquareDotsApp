@@ -8,7 +8,8 @@ function App() {
   return (
     <>
       <Title />
-      <GameBoard dispatch={dispatch} state={state} />
+      {state.winner === 0 && <GameBoard dispatch={dispatch} state={state} />}
+      {state.winner !== 0 && <h2>Player {state.winner} Won the Game</h2>}
       <Information
         currentPlayer={state.currentPlayer}
         remainingSquares={state.remainingSquares}

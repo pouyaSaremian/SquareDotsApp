@@ -23,10 +23,9 @@ type position = { id: string; taken: boolean; player: number };
 
 export type GameSquareProps = {
   SquareData: square;
-  dispatch: React.Dispatch<action>;
+  id: number;
 };
 
 export type GameBoardProps = {
   state: state;
-  dispatch: React.Dispatch<action>;
 };

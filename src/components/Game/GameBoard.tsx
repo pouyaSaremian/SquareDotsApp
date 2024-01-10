@@ -3,7 +3,7 @@ import GameSquare from "./GameSquare";
 import { GameBoardProps } from "../../types/GameTypes";
 import Dot from "./Dot";
 
-const GameBoard = ({ state, dispatch }: GameBoardProps) => {
+const GameBoard = ({ state }: GameBoardProps) => {
   return (
     <div className={Style["game__container"]}>
       <div className={Style["game__dots"]}>
@@ -26,7 +26,7 @@ const GameBoard = ({ state, dispatch }: GameBoardProps) => {
       </div>
       <div className={Style["game__squares"]}>
         {state.squares.map((el) => (
-          <GameSquare key={el.id} SquareData={el} dispatch={dispatch} />
+          <GameSquare key={el.id} id={el.id} SquareData={el} />
         ))}
       </div>
     </div>

@@ -1,6 +1,10 @@
+import { gameSlice } from "../../reducers/gameSlice";
 import type { GameSquareProps } from "../../types/GameTypes";
 import Style from "./style.module.scss";
-const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
+import { useDispatch } from "react-redux";
+
+const GameSquare = ({ SquareData }: GameSquareProps) => {
+  const dispatch = useDispatch();
   function StyleHandler(number: number) {
     if (SquareData.positions[number].taken) {
       if (SquareData.positions[number].player === 2) {
@@ -18,7 +22,7 @@ const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
           className={`${Style["game__square--left"]} ${StyleHandler(0)}`}
           onClick={() =>
             dispatch({
-              type: "LINE_SELECTED",
+              type: gameSlice.actions.lineSelected.type,
               payload: {
                 id: SquareData.id,
                 position: SquareData.positions[0].id,
@@ -30,7 +34,7 @@ const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
           className={`${Style["game__square--top"]} ${StyleHandler(1)}`}
           onClick={() =>
             dispatch({
-              type: "LINE_SELECTED",
+              type: gameSlice.actions.lineSelected.type,
               payload: {
                 id: SquareData.id,
                 position: SquareData.positions[1].id,
@@ -42,7 +46,7 @@ const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
           className={`${Style["game__square--right"]} ${StyleHandler(2)}`}
           onClick={() =>
             dispatch({
-              type: "LINE_SELECTED",
+              type: gameSlice.actions.lineSelected.type,
               payload: {
                 id: SquareData.id,
                 position: SquareData.positions[2].id,
@@ -61,7 +65,7 @@ const GameSquare = ({ SquareData, dispatch }: GameSquareProps) => {
           }
           onClick={() =>
             dispatch({
-              type: "LINE_SELECTED",
+              type: gameSlice.actions.lineSelected.type,
               payload: {
                 id: SquareData.id,
                 position: SquareData.positions[3].id,

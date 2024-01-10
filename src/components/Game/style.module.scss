@@ -1,7 +1,7 @@
 .game__container {
   display: grid;
   width: fit-content;
-  height: fit-content;
+  height: 50vh;
   grid-auto-flow: row;
   position: relative;
 }
@@ -18,17 +18,16 @@
 .game__dots {
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%) scaleX(1.12) scaleY(1.12);
+  transform: translate(-50%, -50%);
   position: absolute;
   display: grid;
-  gap: 3.5rem;
+  gap: 3.8rem;
   grid-template-columns: repeat(4, max-content);
   grid-template-rows: repeat(4, max-content);
 }
 .game__dot {
   background-color: var(--color-primary);
-  width: 1rem;
-  height: 1rem;
+  border: 0.5rem solid var(--color-primary);
   border-radius: 50%;
 }
 .game__square {

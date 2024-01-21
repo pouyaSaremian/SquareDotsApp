@@ -12,8 +12,8 @@
   top: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template-columns: repeat(3, max-content);
-  grid-template-rows: repeat(3, max-content);
+  grid-template-columns: repeat(10, max-content);
+  grid-template-rows: repeat(10, max-content);
 }
 .game__dots {
   left: 50%;
@@ -22,8 +22,8 @@
   position: absolute;
   display: grid;
   gap: 3.8rem;
-  grid-template-columns: repeat(4, max-content);
-  grid-template-rows: repeat(4, max-content);
+  grid-template-columns: repeat(11, max-content);
+  grid-template-rows: repeat(11, max-content);
 }
 .game__dot {
   background-color: var(--color-primary);

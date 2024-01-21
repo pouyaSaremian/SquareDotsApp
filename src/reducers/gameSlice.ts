@@ -3,8 +3,8 @@ import { square } from "../types/GameTypes";
 
 //Initial State Genertor
 function boardInitializer() {
-  let rows = 3;
-  let columns = 3;
+  let rows = 10;
+  let columns = 10;
   let id = 0;
   let squaresArray: square[] = [];
   for (var i = 1; i <= rows; i++) {

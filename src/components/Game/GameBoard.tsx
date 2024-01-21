@@ -7,22 +7,127 @@ const GameBoard = ({ state }: GameBoardProps) => {
   return (
     <div className={Style["game__container"]}>
       <div className={Style["game__dots"]}>
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
-        <Dot />
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
+        <Dot></Dot>
       </div>
       <div className={Style["game__squares"]}>
         {state.squares.map((el) => (

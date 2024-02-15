@@ -1,32 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { square } from "../types/GameTypes";
+import type { state } from "../types/GameTypes";
 
 //Initial State Genertor
-function boardInitializer() {
-  let rows = 10;
-  let columns = 10;
-  let id = 0;
-  let squaresArray: square[] = [];
-  for (var i = 1; i <= rows; i++) {
-    for (var j = 1; j <= columns; j++) {
-      squaresArray.push({
-        id: id++,
-        positions: [
-          { id: `V${i}${j}`, taken: false, player: 0 },
-          { id: `H${j}${i}`, taken: false, player: 0 },
-          { id: `V${i}${j + 1}`, taken: false, player: 0 },
-          { id: `H${j}${i + 1}`, taken: false, player: 0 },
-        ],
-        taken: false,
-        player: 0,
-      });
-    }
-  }
+function boardInitializer(): state {
   //Initial State
   return {
-    squares: squaresArray,
+    init: {
+      status: false,
+      rows: 0,
+      columns: 0,
+    },
+    squares:[],
     currentPlayer: 1,
-    remainingSquares: rows * columns,
+    remainingSquares:0,
     player1: 0,
     player2: 0,
     winner: 0,
@@ -37,6 +23,28 @@ export const gameSlice = createSlice({
   name: "game",
   initialState: boardInitializer(),
   reducers: {
+    boardInit(state, action) {
+      state.init.status = true;
+      state.init.rows = action.payload.rows;
+      state.init.columns = action.payload.columns;
+      let id = 0;
+      for (var i = 1; i <= state.init.rows; i++) {
+        for (var j = 1; j <= state.init.columns; j++) {
+          state.squares.push({
+            id: id++,
+            positions: [
+              { id: `V${i}${j}`, taken: false, player: 0 },
+              { id: `H${j}${i}`, taken: false, player: 0 },
+              { id: `V${i}${j + 1}`, taken: false, player: 0 },
+              { id: `H${j}${i + 1}`, taken: false, player: 0 },
+            ],
+            taken: false,
+            player: 0,
+          });
+        }
+      }
+      state.remainingSquares=state.init.rows*state.init.columns
+    },
     lineSelected(state, action) {
       let changePlayer = false;
       //Finding Modified lines In Each Square

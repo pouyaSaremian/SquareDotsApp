@@ -4,6 +4,11 @@ export type action = {
 };
 
 export type state = {
+  init:{
+    status:boolean;
+    rows:0|10|25|50;
+    columns:0|10|25|50
+  }
   squares: square[];
   currentPlayer: number;
   remainingSquares: number;

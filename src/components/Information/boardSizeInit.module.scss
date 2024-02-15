@@ -1,0 +1,31 @@
+.boardInit {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 4rem 8rem;
+  border-radius: 1rem;
+  background-color: rgba(#242424, 0.2);
+  &--title {
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+  &--container {
+    display: flex;
+    font-size: 2rem;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  &--button {
+    all: unset;
+    background-color: var(--color-player-2);
+    color: var(--color-primary);
+    padding: 1rem 2rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    &:hover{
+      background-color: var(--color-player-1);
+      color: var(--color-player-2);
+    }
+  }
+}

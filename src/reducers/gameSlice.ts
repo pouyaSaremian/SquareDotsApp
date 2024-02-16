@@ -10,9 +10,9 @@ function boardInitializer(): state {
       rows: 0,
       columns: 0,
     },
-    squares:[],
+    squares: [],
     currentPlayer: 1,
-    remainingSquares:0,
+    remainingSquares: 0,
     player1: 0,
     player2: 0,
     winner: 0,
@@ -27,6 +27,7 @@ export const gameSlice = createSlice({
       state.init.status = true;
       state.init.rows = action.payload.rows;
       state.init.columns = action.payload.columns;
+      state.winner=0;
       let id = 0;
       for (var i = 1; i <= state.init.rows; i++) {
         for (var j = 1; j <= state.init.columns; j++) {
@@ -43,7 +44,7 @@ export const gameSlice = createSlice({
           });
         }
       }
-      state.remainingSquares=state.init.rows*state.init.columns
+      state.remainingSquares = state.init.rows * state.init.columns;
     },
     lineSelected(state, action) {
       let changePlayer = false;
@@ -66,21 +67,20 @@ export const gameSlice = createSlice({
 
       //Check if any Square get Completed
       for (let square of targetSquares) {
-        if(!square.taken){
-
+        if (!square.taken) {
           const completedLines = square.positions.filter((e) => e.taken);
           //if all lines been true
-        if (completedLines.length === 4) {
-          square.taken = true;
-          square.player = state.currentPlayer;
-          state.remainingSquares = state.remainingSquares - 1;
-          state.currentPlayer === 1 ? state.player1++ : state.player2++;
-          state.currentPlayer === 1
-          ? (state.currentPlayer = 1)
-          : (state.currentPlayer = 2);
-          changePlayer = false;
+          if (completedLines.length === 4) {
+            square.taken = true;
+            square.player = state.currentPlayer;
+            state.remainingSquares = state.remainingSquares - 1;
+            state.currentPlayer === 1 ? state.player1++ : state.player2++;
+            state.currentPlayer === 1
+              ? (state.currentPlayer = 1)
+              : (state.currentPlayer = 2);
+            changePlayer = false;
+          }
         }
-      }
       }
 
       if (changePlayer)
@@ -90,12 +90,16 @@ export const gameSlice = createSlice({
 
       //Check Who is the winner
       if (state.remainingSquares === 0) {
-        state.init.status=false;
         if (state.player1 > state.player2) {
           state.winner = 1;
         } else {
           state.winner = 2;
         }
+        state.init.status = false;
+        state.squares = [];
+        state.currentPlayer = 1;
+        state.player1 = 0;
+        state.player2 = 0;
       }
     },
   },

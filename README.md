@@ -7,6 +7,8 @@ Welcome to the repository for the Square-Dot Game, an interactive digital recrea
 **Game Introduction:**
 The Square-Dot Game, also known as Dots and Boxes, involves two players who take turns to connect adjacent dots on a grid with vertical and horizontal lines. The objective is to complete more squares than your opponent. As each player adds a line, the opportunities to complete squares increase, and strategic planning becomes crucial.
 
+[Try the Game On Netlify](https://square-dots.netlify.app)
+
 **Rules of the Game:**
 1. The game is played on a grid of dots.
 2. Players take turns to draw a single line (either horizontal or vertical) between two unjoined adjacent dots.

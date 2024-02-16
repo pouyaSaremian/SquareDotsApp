@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { gameSlice } from "../../reducers/gameSlice";
 const BoardSizeInit = () => {
   const dispatch = useDispatch();
-  function boardInitHandler(arg: 4 | 6 | 8) {
+  function boardInitHandler(arg: 3 | 5 | 7) {
     dispatch({
       type: gameSlice.actions.boardInit.type,
       payload: { rows: arg, columns: arg },
@@ -12,26 +12,26 @@ const BoardSizeInit = () => {
 
   return (
     <div className={Styles.boardInit}>
-      <h2 className={Styles["boardInit--title"]}>choose the board:</h2>
+      <h2 className={Styles["boardInit--title"]}>choose the board size:</h2>
       <form onSubmit={(e) => e.preventDefault}>
         <div className={Styles["boardInit--container"]}>
           <button
             className={Styles["boardInit--button"]}
-            onClick={() => boardInitHandler(4)}
+            onClick={() => boardInitHandler(3)}
           >
-            4*4
+            3x3
           </button>
           <button
             className={Styles["boardInit--button"]}
-            onClick={() => boardInitHandler(6)}
+            onClick={() => boardInitHandler(5)}
           >
-            6*6
+            5x5
           </button>
           <button
             className={Styles["boardInit--button"]}
-            onClick={() => boardInitHandler(8)}
+            onClick={() => boardInitHandler(7)}
           >
-            8*8
+            7x7
           </button>
         </div>
       </form>

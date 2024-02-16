@@ -1,7 +1,7 @@
 .game__container {
   display: grid;
   width: fit-content;
-  height: 50vh;
+  min-height: 50vh;
   grid-auto-flow: row;
   position: relative;
 }
@@ -30,13 +30,31 @@
   border: 0.5rem solid var(--color-primary);
   border-radius: 50%;
 }
+.player-1-win {
+  opacity: 0.5;
+  background-color: var(--color-player-1);
+}
+.player-2-win {
+  opacity: 0.5;
+  background-color: var(--color-player-2);
+}
 .game__square {
   display: grid;
   width: 5rem;
   height: 5rem;
   position: relative;
   margin: -1px;
-
+  position: relative;
+  &--taken {
+    content: "";
+    position: absolute;
+    border-radius: 0.5rem;
+    width: 70%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   &--top {
     position: absolute;
     cursor: pointer;

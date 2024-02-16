@@ -19,6 +19,11 @@ const GameSquare = ({ SquareData }: GameSquareProps) => {
     <>
       <div key={SquareData.id} className={Style["game__square"]}>
         <div
+          className={`${SquareData.taken ? Style["game__square--taken"] : ""} ${
+            SquareData.player === 1 ? Style["player-1-win"] : ""
+          } ${SquareData.player === 2 ? Style["player-2-win"] : ""}`}
+        ></div>
+        <div
           className={`${Style["game__square--left"]} ${StyleHandler(0)}`}
           onClick={() =>
             dispatch({

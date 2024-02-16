@@ -66,18 +66,21 @@ export const gameSlice = createSlice({
 
       //Check if any Square get Completed
       for (let square of targetSquares) {
-        const completedLines = square.positions.filter((e) => e.taken);
-        //if all lines been true
+        if(!square.taken){
+
+          const completedLines = square.positions.filter((e) => e.taken);
+          //if all lines been true
         if (completedLines.length === 4) {
           square.taken = true;
           square.player = state.currentPlayer;
           state.remainingSquares = state.remainingSquares - 1;
           state.currentPlayer === 1 ? state.player1++ : state.player2++;
           state.currentPlayer === 1
-            ? (state.currentPlayer = 1)
-            : (state.currentPlayer = 2);
+          ? (state.currentPlayer = 1)
+          : (state.currentPlayer = 2);
           changePlayer = false;
         }
+      }
       }
 
       if (changePlayer)
@@ -87,6 +90,7 @@ export const gameSlice = createSlice({
 
       //Check Who is the winner
       if (state.remainingSquares === 0) {
+        state.init.status=false;
         if (state.player1 > state.player2) {
           state.winner = 1;
         } else {

@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <Title />
+      {console.log(import.meta.env.BASE_URL)}
       {!state.init.status && <BoardSizeInit />}
       {state.init.status && <GameBoard state={state} />}
       {state.winner !== 0 && <h2 className="winner"><span>Player {state.winner} </span>Won the Game</h2>}

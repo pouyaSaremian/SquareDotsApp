@@ -2,9 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import type { state } from "../types/GameTypes";
 
 //Initial State Genertor
-function boardInitializer(): state {
+const InitialState: state= {
   //Initial State
-  return {
     init: {
       status: false,
       rows: 0,
@@ -16,12 +15,11 @@ function boardInitializer(): state {
     player1: 0,
     player2: 0,
     winner: 0,
-  };
 }
 
 export const gameSlice = createSlice({
   name: "game",
-  initialState: boardInitializer(),
+  initialState: InitialState,
   reducers: {
     boardInit(state, action) {
       state.init.status = true;
